@@ -8,3 +8,6 @@ spring:
     password: 2754216911
 server:
   port: 8080
+
+mybatis:
+  mapper-locations: mapper/*.xml

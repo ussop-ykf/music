@@ -1,5 +1,7 @@
 package org.example.music.controller;
 
+import org.example.music.domain.Admin;
+import org.example.music.domain.Test;
 import org.example.music.mapper.SingerMapper;
 import org.example.music.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class TestControlller {
     }
     @RequestMapping("/add")
     public String test2() {
+
         return testService.addName("你好");
     }
 
