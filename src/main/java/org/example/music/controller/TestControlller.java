@@ -42,6 +42,10 @@ public class TestControlller {
     @RequestMapping("/querySinger")
     public Result querySinger(Long id) {
         Singer singer = singerService.querySingerById(id);
+        if (singer == null) {
+            return Result.error("查询失败");
+        }
         return Result.success("歌手信息查询", singer);
+
     }
 }
