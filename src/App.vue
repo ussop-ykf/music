@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view/>
+    <button @click="toSingListView">歌手列表</button>
+    <button @click="toSongListView">歌曲列表</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {},
+  methods: {
+    toSingListView() {
+      // 编程式路由
+      this.$router.push({
+        path: '/singerList'
+      }).catch(() => {
+      })
+    }, toSongListView() {
+      // 编程式路由
+      this.$router.push({
+        path: '/songList'
+      }).catch(() => {
+      })
+    }
   }
 }
 </script>
