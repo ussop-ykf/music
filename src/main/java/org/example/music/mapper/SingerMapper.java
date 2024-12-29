@@ -1,7 +1,10 @@
 package org.example.music.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.example.music.domain.Singer;
+
+import java.util.List;
 
 /**
 * @author a1625
@@ -22,5 +25,17 @@ public interface SingerMapper {
     int updateByPrimaryKeySelective(Singer record);
 
     int updateByPrimaryKey(Singer record);
+
+
+
+    /**
+     * 使用 @Parm 注解，sql 语句中 #{XXXX}， 强制改变参数名称
+     * @param record
+     * @param start
+     * @param pageSize
+     * @return
+     */
+    List<Singer> selectSingerList(@Param("record")Singer record, @Param("start") Integer start, @Param("pageSize")Integer pageSize);
+
 
 }

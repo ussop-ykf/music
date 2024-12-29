@@ -21,6 +21,12 @@
         from admin
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectByUsername" resultType="org.example.music.domain.Admin">
+        select
+        <include refid="Base_Column_List"/>
+        from Admin
+        where name = #{record}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
@@ -30,7 +36,7 @@
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.example.music.domain.Admin"
             useGeneratedKeys="true">
         insert into admin
-        (id, name, password)
+            (id, name, password)
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.example.music.domain.Admin"

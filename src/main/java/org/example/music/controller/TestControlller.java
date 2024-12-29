@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestControlller {
+
     @Autowired
     private TestService testService;
     @Autowired
@@ -18,14 +19,20 @@ public class TestControlller {
     @Autowired
     private SingerMapper singerMapper;
 
+
+    @RequestMapping("/test")
+    public Result test() {
+        Singer singer = new Singer();
+        singer.setName("邓");
+        return Result.success(singerMapper.selectSingerList(singer, 0, 10));
+    }
+
+
     @RequestMapping("query")
     public Object query() {
         return singerMapper.selectByPrimaryKey(5L);
     }
-    @RequestMapping("/test")
-    public String test() {
-        return "Hello World!";
-    }
+
     @RequestMapping("/add")
     public String test2() {
 
@@ -34,6 +41,7 @@ public class TestControlller {
 
     /**
      * 参数传递
+     *
      * @return
      */
     @RequestMapping("/querySinger")

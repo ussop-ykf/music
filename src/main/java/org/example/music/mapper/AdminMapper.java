@@ -23,4 +23,6 @@ public interface AdminMapper {
 
     int updateByPrimaryKey(Admin record);
 
+    Admin selectByName(String record);
+
 }
